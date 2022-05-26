@@ -3,6 +3,7 @@
 const mongoose = require('mongoose');
 const User = require('../models/user');
 const service = require('../service');
+const bcrypt = require('bcryptjs');
 
 function signUp(req, res) {
     const user = new User({
