@@ -35,6 +35,8 @@ async function signIn(req, res) {
           res.status(200).send({
             message: "Te has logeado correctamentes",
             token: service.createToken(user),
+            idUsuario: user._id,
+            nombre: user.displayName
           });
         } else {
           res.status(500).send({ message: "Email o Contraseña incorrectos" });
