@@ -14,6 +14,7 @@ api.get('/allEncuestas', EncuestaCtrl.getAllEncuestas);
 // api.delete('/product/:productId', ProductCtrl.deleteProduct);
 api.post('/signup', userCtrl.signUp);
 api.post('/signin', userCtrl.signIn);
+api.get('/users', userCtrl.getUsers);
 api.get('/private', auth, function(req, res){
     res.status(200).send({message: 'Tienes acceso'})
 })

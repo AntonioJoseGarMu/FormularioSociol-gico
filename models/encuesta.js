@@ -19,6 +19,14 @@ const EncuestaSchema = Schema({
     pregunta41: String,
     pregunta42: String,
     pregunta43: String,
+    pregunta511: String,
+    pregunta512: String,
+    pregunta521: String,
+    pregunta522: String,
+    pregunta531: String,
+    pregunta532: String,
+    pregunta6: String,
+    pregunta7: String
 })
 
 module.exports = mongoose.model('Encuesta', EncuestaSchema);

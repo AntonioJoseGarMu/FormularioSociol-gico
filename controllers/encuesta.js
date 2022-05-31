@@ -8,13 +8,27 @@ function saveEncuesta(req, res) {
     let encuesta = new Encuesta();
     encuesta.idUsuario = req.body.idUsuario;
     encuesta.codigoEncuesta = req.body.codigoEncuesta;
-    encuesta.pregunta1 = req.body.pregunta1;
-    encuesta.pregunta2 = req.body.pregunta2;
-    encuesta.pregunta3 = req.body.pregunta3;
-    encuesta.pregunta4 = req.body.pregunta4;
-    encuesta.pregunta5 = req.body.pregunta5;
+    encuesta.pregunta11 = req.body.pregunta11;
+    encuesta.pregunta12 = req.body.pregunta12;
+    encuesta.pregunta13 = req.body.pregunta13;
+    encuesta.pregunta21 = req.body.pregunta21;
+    encuesta.pregunta22 = req.body.pregunta22;
+    encuesta.pregunta23 = req.body.pregunta23;
+    encuesta.pregunta31 = req.body.pregunta31;
+    encuesta.pregunta32 = req.body.pregunta32;
+    encuesta.pregunta33 = req.body.pregunta33;
+    encuesta.pregunta41 = req.body.pregunta41;
+    encuesta.pregunta42 = req.body.pregunta42;
+    encuesta.pregunta43 = req.body.pregunta43;
+    encuesta.pregunta511 = req.body.pregunta511;
+    encuesta.pregunta512 = req.body.pregunta512;
+    encuesta.pregunta521 = req.body.pregunta521;
+    encuesta.pregunta522 = req.body.pregunta522;
+    encuesta.pregunta531 = req.body.pregunta531;
+    encuesta.pregunta532 = req.body.pregunta532;
     encuesta.pregunta6 = req.body.pregunta6;
     encuesta.pregunta7 = req.body.pregunta7;
+    
 
     encuesta.save((err, encuestaStored) => {
         if (err) res.status(500).send({ message: `Error al salvar en la base de datos ${err}` });
