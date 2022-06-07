@@ -8,24 +8,22 @@ const UserSchema = new Schema({
     email: { type: String, unique: true, lowercase: true },
     displayName: String,
     password: String,
+    role: {
+        type: String,
+        enum: ['admin', 'alumno'],
+        default: 'alumno'
+    },
     singupDate: { type: Date, default: Date.now() },
     lastLogin: Date
 })
 
 UserSchema.pre('save', function (next) {
-    let user = this
-    if (!user.isModified('password')) return next()
-
-    bcrypt.genSalt(10, (err, salt) => {
-        if (err) return next(err)
-
-        bcrypt.hash(user.password, salt, null, (err, hash) => {
-            if (err) return next(err)
-
-            user.password = hash
-            next()
-        })
-    })
-})
+    bcrypt.genSalt(10).then(salts => {
+        bcrypt.hash(this.password, salts).then(hash => {
+            this.password = hash;
+            next();
+        }).catch(error => next(error));
+    }).catch(error => next(error));
+});
 
 module.exports = mongoose.model('User', UserSchema);

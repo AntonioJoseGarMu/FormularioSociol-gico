@@ -9,6 +9,7 @@ function createToken(user) {
         sub: user._id,
         iat: moment().unix(),
         exp: moment().add(14, 'days').unix(),
+        role: user.role
     }
 
     return jwt.encode(payload, config.SECRET_TOKEN)
@@ -26,6 +27,7 @@ function decodeToken(token) {
                 })
             }
 
+            // resolve ([payload.sub, payload.role])
             resolve(payload.sub)
 
         }catch (err) {

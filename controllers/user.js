@@ -11,7 +11,7 @@ function signUp(req, res) {
         displayName: req.body.displayName,
         password: req.body.password
     })
-
+    console.log(user);
     user.save((err) => {
         if(err) res.status(500).send({ message: `Error al crear el usuario ${err}` })
 
