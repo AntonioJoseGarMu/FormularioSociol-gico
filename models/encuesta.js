@@ -5,8 +5,7 @@ const Schema = mongoose.Schema;
 
 // 7 preguntas encuesta
 const EncuestaSchema = Schema({
-    idUsuario: String,
-    codigoEncuesta: String,
+    nombre: String,
     pregunta11: String,
     pregunta12: String,
     pregunta13: String,

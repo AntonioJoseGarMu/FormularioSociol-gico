@@ -36,7 +36,8 @@ async function signIn(req, res) {
             message: "Te has logeado correctamentes",
             token: service.createToken(user),
             idUsuario: user._id,
-            nombre: user.displayName
+            nombre: user.displayName,
+            role: user.role
           });
         } else {
           res.status(500).send({ message: "Email o Contraseña incorrectos" });
@@ -54,7 +55,7 @@ async function signIn(req, res) {
         if (err) return res.status(500).send({ message: `Error al realizar la petición ${err}` });
         if (!users) return res.status(404).send({ message: `No existen users` });
 
-        res.send(200, { users })
+        res.status(200).send({ users })
     })
 }
 

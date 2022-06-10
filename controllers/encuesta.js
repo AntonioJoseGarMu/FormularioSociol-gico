@@ -6,8 +6,7 @@ const Encuesta = require('../models/encuesta');
 function saveEncuesta(req, res) {
 
     let encuesta = new Encuesta();
-    encuesta.idUsuario = req.body.idUsuario;
-    encuesta.codigoEncuesta = req.body.codigoEncuesta;
+    encuesta.nombre = req.body.nombre;
     encuesta.pregunta11 = req.body.pregunta11;
     encuesta.pregunta12 = req.body.pregunta12;
     encuesta.pregunta13 = req.body.pregunta13;
@@ -50,7 +49,7 @@ function getAllEncuestas(req, res) {
         if (err) return res.status(500).send({ message: `Error al realizar la petición ${err}` });
         if (!encuestas) return res.status(404).send({ message: `No existen encuestas` });
 
-        res.send(200, { encuestas })
+        res.status(200).send({ encuestas })
     })
 }
 
